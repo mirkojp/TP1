@@ -10,10 +10,10 @@ El propósito de este trabajo practico es aplicar Python 3 y Pip 3 en entornos d
 
 El repositorio está organizado de la siguiente manera:
 
-1. **src**: Contiene el código fuente de la aplicación.
-2. **doc**: Contiene la documentación del proyecto.
-3. **script**: 
-4. **bin**: 
+- **src**: Contiene el código fuente de la aplicación.
+- **doc**: Contiene la documentación del proyecto.
+- **script**: 
+- **bin**: 
 
 ## Instalación
 

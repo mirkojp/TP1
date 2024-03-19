@@ -1,4 +1,4 @@
-# Repositorio de Proyecto XYZ
+# Repositorio de TP1 Gestión de Configuración y Python
 
 Este repositorio contiene el código y la documentación asociada al TP1 de IS2
 

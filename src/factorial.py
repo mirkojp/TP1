@@ -25,6 +25,22 @@ def factorial(num):
             num -= 1
         return fact 
 
+# Funcion para calcular el factorial entre un limite inferior y superior
+def factorial_rango(desde,hasta):
+
+    # Lista guarda las valores
+    factoriales = []
+
+    #Itera por todos los valores del intervalo, usando la funcion factiorial
+    for num in range(desde,hasta+1):
+        fact = factorial(num)
+        if fact is not None:
+            factoriales.append((num, fact))
+
+    return factoriales
+
+# 
+
 
 
 # Verificar si se proporciona un argumento en la línea de comandos
@@ -32,15 +48,25 @@ if len(sys.argv) == 1:
     # Si no se proporciona un argumento, solicitar al usuario que ingrese el número
     while True:
         try:
-            num = int(input("Ingrese un número para calcular su factorial: "))
+            rango = input("Ingrese un rango (desde-hasta) para calcular los factoriales: ")
+            desde, hasta = map(int, rango.split("-"))
             break
         except ValueError:
             print("Debe ingresar un número válido.")
 
 else:
-    num = int(sys.argv[1])
 
+    # Si se proporciona un argumento en la línea de comandos, interpretarlo como un rango
+    rango = sys.argv[1]
+    desde, hasta = map(int, rango.split("-"))
 
-# Calcular y mostrar el factorial
-if num is not None:
-    print("Factorial", num, "! es", factorial(num))
+# Calcular los factoriales en el rango especificado
+factoriales = factorial_rango(desde, hasta)
+
+# Mostrar los resultados
+if factoriales:
+    print("Los factoriales en el rango", desde, "-", hasta, "son:")
+    for num, fact in factoriales:
+        print("Factorial de", num, "es", fact)
+else:
+    print("No se encontraron factoriales en el rango especificado.")

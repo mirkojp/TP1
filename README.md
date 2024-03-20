@@ -4,12 +4,11 @@ Este repositorio contiene el código y la documentación asociada al TP1 de IS2
 
 ## Propósito
 
-El propósito de este trabajo practico es aplicar Python 3 y Pip 3 en entornos de git, utilizando la gestion de configuracion de dicho progrma
+El propósito de este trabajo practico es aplicar Python 3 y Pip 3 en entornos de git, utilizando la gestion de configuracion de dicho programa
 
 ## Estructura del Repositorio
 
 El repositorio está organizado de la siguiente manera:
-
 
 1. **bin**: 
 2. **doc**: Contiene la documentación del proyecto.

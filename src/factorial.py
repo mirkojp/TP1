@@ -25,13 +25,22 @@ def factorial(num):
             num -= 1
         return fact 
 
-#Revisar si el argumento no esta vacio
-if len(sys.argv) == 0:
-   print("Debe informar un número!")
-   sys.exit()
 
-#Convertir argumento en numero entero
-num=int(sys.argv[1])
 
-#Imprimimos el resultados
-print("Factorial ",num,"! es ", factorial(num)) 
+# Verificar si se proporciona un argumento en la línea de comandos
+if len(sys.argv) == 1:
+    # Si no se proporciona un argumento, solicitar al usuario que ingrese el número
+    while True:
+        try:
+            num = int(input("Ingrese un número para calcular su factorial: "))
+            break
+        except ValueError:
+            print("Debe ingresar un número válido.")
+
+else:
+    num = int(sys.argv[1])
+
+
+# Calcular y mostrar el factorial
+if num is not None:
+    print("Factorial", num, "! es", factorial(num))

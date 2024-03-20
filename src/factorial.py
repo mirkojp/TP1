@@ -31,7 +31,7 @@ def factorial_rango(desde,hasta):
     # Lista guarda las valores
     factoriales = []
 
-    #Itera por todos los valores del intervalo, usando la funcion factiorial
+    # Itera por todos los valores del intervalo, usando la funcion factiorial
     for num in range(desde,hasta+1):
         fact = factorial(num)
         if fact is not None:
@@ -39,26 +39,44 @@ def factorial_rango(desde,hasta):
 
     return factoriales
 
-# 
-
+#
 
 
 # Verificar si se proporciona un argumento en la línea de comandos
 if len(sys.argv) == 1:
-    # Si no se proporciona un argumento, solicitar al usuario que ingrese el número
+    # Si no se proporciona un argumento, solicitar al usuario que ingrese el rango
     while True:
         try:
             rango = input("Ingrese un rango (desde-hasta) para calcular los factoriales: ")
-            desde, hasta = map(int, rango.split("-"))
-            break
+            if rango.startswith("-"):
+                desde = 1
+                hasta = int(rango.split("-")[1])
+                break
+            elif rango.endswith("-"):
+                desde = int(rango.split("-")[0])
+                hasta = 60
+                break
+            if "-" in rango:
+                desde, hasta = map(int, rango.split("-"))
+                break
+            else:
+                raise ValueError
         except ValueError:
-            print("Debe ingresar un número válido.")
+            print(
+                "Debe ingresar un rango válido en el formato 'desde-hasta', '-hasta' o 'desde-'."
+            )
 
 else:
-
-    # Si se proporciona un argumento en la línea de comandos, interpretarlo como un rango
+    # Si se proporciona un argumento en la línea de comandos, lo interpreta como un rango automáticamente
     rango = sys.argv[1]
-    desde, hasta = map(int, rango.split("-"))
+    if rango.startswith("-"):
+        desde = 1
+        hasta = int(rango.split("-")[1])
+    elif rango.endswith("-"):
+        desde = int(rango.split("-")[0])
+        hasta = 60
+    elif "-" in rango:
+        desde, hasta = map(int, rango.split("-"))
 
 # Calcular los factoriales en el rango especificado
 factoriales = factorial_rango(desde, hasta)

@@ -31,15 +31,16 @@ def factorial_rango(desde,hasta):
     # Lista guarda las valores
     factoriales = []
 
-    # Itera por todos los valores del intervalo, usando la funcion factiorial
+    # Itera por todos los valores del intervalo
     for num in range(desde,hasta+1):
+        #Llama a funcion factorial
         fact = factorial(num)
+        #Si existe lo guarda
         if fact is not None:
             factoriales.append((num, fact))
 
     return factoriales
 
-#
 
 
 # Verificar si se proporciona un argumento en la línea de comandos
@@ -48,33 +49,40 @@ if len(sys.argv) == 1:
     while True:
         try:
             rango = input("Ingrese un rango (desde-hasta) para calcular los factoriales: ")
+
+            #Caso -hasta
             if rango.startswith("-"):
                 desde = 1
                 hasta = int(rango.split("-")[1])
                 break
+            #Caso desde-
             elif rango.endswith("-"):
                 desde = int(rango.split("-")[0])
                 hasta = 60
                 break
+            #Caso desde-hasta
             if "-" in rango:
                 desde, hasta = map(int, rango.split("-"))
                 break
             else:
+            #levantar error
                 raise ValueError
         except ValueError:
-            print(
-                "Debe ingresar un rango válido en el formato 'desde-hasta', '-hasta' o 'desde-'."
-            )
+            print("Debe ingresar un rango válido en el formato 'desde-hasta', '-hasta' o 'desde-'.")
 
 else:
     # Si se proporciona un argumento en la línea de comandos, lo interpreta como un rango automáticamente
     rango = sys.argv[1]
+
+    #Caso -hasta
     if rango.startswith("-"):
         desde = 1
         hasta = int(rango.split("-")[1])
+    #Caso desde-
     elif rango.endswith("-"):
         desde = int(rango.split("-")[0])
         hasta = 60
+    #Caso desde-hasta
     elif "-" in rango:
         desde, hasta = map(int, rango.split("-"))
 
@@ -84,6 +92,7 @@ factoriales = factorial_rango(desde, hasta)
 # Mostrar los resultados
 if factoriales:
     print("Los factoriales en el rango", desde, "-", hasta, "son:")
+    #Itera por todos los valores
     for num, fact in factoriales:
         print("Factorial de", num, "es", fact)
 else:

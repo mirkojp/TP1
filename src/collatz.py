@@ -20,7 +20,6 @@ def iteracion_collatz(num):
         iteraciones += 1
     return iteraciones
 
-
 # Calcular la secuencia de Collatz y el número de iteraciones para cada número en el rango
 num_valores = range(1, 10001)
 iteraciones_valores = [iteracion_collatz(num) for num in num_valores]

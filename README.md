@@ -15,19 +15,27 @@ El repositorio está organizado de la siguiente manera:
 3. **script**: 
 4. **src**: Contiene el código fuente de la aplicación.
 
+## Dependencias
+
+Lista de dependencias necesarias para el programa
+
+- Python3
+- Matplotlib
+- Pip3
+
 ## Instalación
 
 Para instalar y ejecutar la aplicación localmente, sigue estos pasos:
 
 1. Clona este repositorio en tu máquina local.
 2. Navega a la carpeta `src`
-3. Ejecuta `factorial.py` o `primos.py` para iniciar la aplicación.
+3. Ejecuta `factorial.py` o `primos.py` o `factorial_OOP.py` o `collatz.py` para iniciar la aplicación.
 
 ## Capturas de Pantalla
 
 A continuación, captura del codigo:
 
-![Captura del codigo]()
+![Captura del codigo](doc/grafico_collatz.png)
 
 ### Recursos Externos
 

@@ -1,29 +1,34 @@
+# Provea una clase que dado un número entero cualquiera retorne el factorial del
+# mismo, debe asegurarse que todas las clases que lo invoquen utilicen la misma
+# instancia de clase.
+
 class SingletonMeta(type):
     """
-    The Singleton class can be implemented in different ways in Python. Some
-    possible methods include: base class, decorator, metaclass. We will use the
-    metaclass because it is best suited for this purpose.
+    Metaclass for implementing the Singleton pattern.
     """
 
     _instances = {}
 
     def __call__(cls, *args, **kwargs):
         """
-        Possible changes to the value of the `__init__` argument do not affect
-        the returned instance.
+        Override the __call__ method to ensure only one instance is created.
         """
         if cls not in cls._instances:
+            # If the instance doesn't exist, create it and store it
             instance = super().__call__(*args, **kwargs)
             cls._instances[cls] = instance
         return cls._instances[cls]
 
+
 class Factorial_calculator(metaclass=SingletonMeta):
     """
-    This Class implements the metaclass SingletonMeta, so you can define
-    differentes variables yet both are linked with the same instance of the class
+    Class implementing a Factorial calculator using the Singleton pattern.
     """
 
-    def factorial(self,number):
+    def factorial(self, number):
+        """
+        Calculates the factorial of a non-negative integer.
+        """
         if number < 0:
             raise ValueError("Factorial only applies to non-negative numbers")
         elif number == 0:
@@ -31,13 +36,22 @@ class Factorial_calculator(metaclass=SingletonMeta):
         else:
             return number * self.factorial(number - 1)
 
+
 if __name__ == "__main__":
     try:
-        Si_1= Factorial_calculator()
+        # Create an instance of the Factorial_calculator class
+        Si_1 = Factorial_calculator()
+
+        # Calculate factorial (intentionally passing a negative number to trigger an exception)
         Value = Si_1.factorial(-5)
         print(Value)
-        Si_2= Factorial_calculator()
+
+        # Create another instance of the Factorial_calculator class
+        Si_2 = Factorial_calculator()
+
+        # Check if both instances are the same (Singleton pattern)
         if Si_1 == Si_2:
             print(True)
     except Exception as e:
+        # Handle any exceptions raised during execution
         print("Error:", e)

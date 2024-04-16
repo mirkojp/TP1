@@ -41,6 +41,7 @@ class OperationDecorator(Number):
         Args:
             number (Number): The number to be operated on.
         """
+        super().__init__(number.value)  # Initialize superclass with value
         self.number = number
 
     def print_value(self):

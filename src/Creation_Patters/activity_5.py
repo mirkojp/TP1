@@ -2,6 +2,7 @@
 # para construir aviones en lugar de vehículos. Para simplificar suponga que un
 # avión tiene un “body”, 2 turbinas, 2 alas y un tren de aterrizaje.
 
+
 import os
 # Class Director
 class Director:
@@ -143,6 +144,7 @@ def main():
 # Main entry point
 if __name__ == "__main__":
     import os
+
     os.system("clear")
     print("Example of a Builder pattern applied to airplane construction\n")
     main()
